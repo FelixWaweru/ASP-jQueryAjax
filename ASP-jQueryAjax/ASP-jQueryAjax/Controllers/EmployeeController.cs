@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -35,9 +36,23 @@ namespace ASP_jQueryAjax.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddOrEdit()
+        public ActionResult AddOrEdit(Employee emp)
         {
-            return View();
+            if(emp.ImageUpload!= null)
+            {
+                string fileName = Path.GetFileNameWithoutExtension(emp.ImageUpload.FileName);
+                string extension = Path.GetExtension(emp.ImageUpload.FileName);
+                fileName = fileName + DateTime.Now.ToString("77mmssfff") + extension;
+                emp.ImagePath = "~/AppFiles/Images/" + fileName;
+                emp.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/AppFiles/Images/"), fileName));
+            }
+
+            using (DBModel db = new DBModel())
+            {
+                db.Employees.Add(emp);
+                db.SaveChanges();
+            }
+                return RedirectToAction("ViewAll");
         }
     }
 }
