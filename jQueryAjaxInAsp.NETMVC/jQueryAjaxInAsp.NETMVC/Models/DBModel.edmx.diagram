@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="448afc4f59664d3d9ed3d32a6a7f8295" Name="Diagram1">
+      <Diagram DiagramId="6ae2bc56c0a5470a861b50249fb6f58f" Name="Diagram1">
         <EntityTypeShape EntityType="JQueryAjaxDB2Model.Employee" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>

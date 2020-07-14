@@ -78,7 +78,7 @@ function Edit(url) {
 }
 
 function Delete(url) {
-    if (confirm('Are you sure to delete this record ?') == true)
+    if (confirm('Are you sure you want to delete this record ?') == true)
     {
         $.ajax({
             type: 'POST',
